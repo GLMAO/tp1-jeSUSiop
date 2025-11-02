@@ -1,7 +1,10 @@
 package org.emp.gl.core.launcher;
 
+import javax.swing.UIManager;
+
 import org.emp.gl.clients.CompteARebours;
 import org.emp.gl.clients.Horloge ;
+import org.emp.gl.clients.HorlogeGraphique;
 import org.emp.gl.time.service.impl.DummyTimeServiceImpl;
 import org.emp.gl.timer.service.TimerService;
 
@@ -13,9 +16,16 @@ public class App {
 
     public static void main(String[] args) {
         TimerService timerService = new DummyTimeServiceImpl();
+        org.emp.gl.time.service.impl.DummyTimeServiceImpl service =
+                new org.emp.gl.time.service.impl.DummyTimeServiceImpl();
+                try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (Exception ignored) {}
+
+        new HorlogeGraphique(service);
         
 
-        testDuTimeService(timerService);
+        //testDuTimeService(timerService);
     }
 
     private static void testDuTimeService(TimerService timerService) {
