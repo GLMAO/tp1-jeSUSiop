@@ -25,6 +25,14 @@ public class Horloge implements TimerChangeListener{
                                 timerService.getMinutes()+":"+
                                 timerService.getSecondes()) ;
     }
-   public  void propertyChange (String prop, Object oldValue, Object newValue) {}
+   @Override
+    public void propertyChange(String propertyName, Object oldValue, Object newValue) {
+        if (TimerChangeListener.SECONDE_PROP.equals(propertyName)) {
+            int h = timerService.getHeures();
+            int m = timerService.getMinutes();
+            int s = timerService.getSecondes();
+            System.out.printf(name + " affiche : %02d:%02d:%02d%n", h, m, s);
+        }
+    }
 
 }

@@ -18,6 +18,7 @@ public class App {
 
     private static void testDuTimeService(TimerService timerService) {
         Horloge horloge = new Horloge("Num 1",timerService) ;
+        Horloge horloge2 = new Horloge("Num 2",timerService) ;
     }
 
     public static void clearScreen() {
